@@ -36,4 +36,6 @@
     <!-- the background color used for unread conversation -->
     <color name="unread_bgcolor">#ff000000</color>
     <color name="read_bgcolor">#ff222222</color>
+    
+    <drawable name="message_list_item_background">#ff111111</drawable>
 </resources>
