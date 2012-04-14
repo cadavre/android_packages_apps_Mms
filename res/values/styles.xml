@@ -11,8 +11,8 @@
 
     <style name="TextAppearance.SearchResult">
         <item name="android:textStyle">normal</item>
-        <item name="android:textColor">?android:textColorPrimaryInverse</item>
-        <item name="android:textColorHint">?android:textColorHintInverse</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textColorHint">?android:textColorHint</item>
     </style>
 
     <style name="TextAppearance.SearchResult.Title">

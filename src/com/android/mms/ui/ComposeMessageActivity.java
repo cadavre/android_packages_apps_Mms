@@ -2371,6 +2371,10 @@ public class ComposeMessageActivity extends Activity
 
         menu.clear();
 
+        menu.add(0, 12345, 0, "To GSM alphabet")
+	        .setIcon(R.drawable.ic_menu_call)
+	        .setTitle("To GSM alphabet");
+
         if (isRecipientCallable()) {
             MenuItem item = menu.add(0, MENU_CALL_RECIPIENT, 0, R.string.menu_call)
                 .setIcon(R.drawable.ic_menu_call)
@@ -2466,6 +2470,27 @@ public class ComposeMessageActivity extends Activity
                 break;
             case MENU_DELETE_THREAD:
                 confirmDeleteThread(mConversation.getThreadId());
+                break;
+            case 12345:
+			    String invalidChars = "ęóąśłżźćńĘÓĄŚŁŻŹĆŃ";
+			    String validChars = "eoaslzzcnEOASLZZCN";
+			    int changeLength = invalidChars.length();
+                String source = mTextEditor.getText().toString();
+                int messageLength = source.length();
+
+			    String textReplacement = "";
+			    for (int i = 0; i < messageLength; i++) {
+				    char c = source.charAt(i);
+				    for (int j = 0; j < changeLength; j++) {
+					    if (c == invalidChars.charAt(j)) {
+						    c = validChars.charAt(j);
+					    }
+				    }
+				    textReplacement = textReplacement.concat(String.valueOf(c));
+			    }
+
+                mTextEditor.setText(textReplacement);
+
                 break;
 
             case android.R.id.home:
@@ -3259,8 +3284,40 @@ public class ComposeMessageActivity extends Activity
         mTextEditor = (EditText) findViewById(R.id.embedded_text_editor);
         mTextEditor.setOnEditorActionListener(this);
         mTextEditor.addTextChangedListener(mTextEditorWatcher);
+
+        /*
+         * Remove polish diacritics from input.
+         */
+
+		/*InputFilter diacriticsFilter = new InputFilter() {
+			String invalidChars = "ęóąśłżźćńĘÓĄŚŁŻŹĆŃ";
+			String validChars = "eoaslzzcnEOASLZZCN";
+			int changeLength = invalidChars.length();
+
+			public CharSequence filter(CharSequence source, int start, int end,
+					Spanned dest, int dstart, int dend) {
+				String textReplacement = "";
+				for (int i = start; i < end; i++) {
+					char c = source.charAt(i);
+					for (int j = 0; j < changeLength; j++) {
+						if (c == invalidChars.charAt(j)) {
+							c = validChars.charAt(j);
+						}
+					}
+					textReplacement = textReplacement.concat(String.valueOf(c));
+				}
+				return textReplacement;
+			}
+		};*/
+
+        /*** END ***/
+
+        /*mTextEditor.setFilters(new InputFilter[] {
+                new LengthFilter(MmsConfig.getMaxTextLimit()),
+                diacriticsFilter });*/
         mTextEditor.setFilters(new InputFilter[] {
                 new LengthFilter(MmsConfig.getMaxTextLimit())});
+
         mTextCounter = (TextView) findViewById(R.id.text_counter);
         mSendButtonMms = (TextView) findViewById(R.id.send_button_mms);
         mSendButtonSms = (ImageButton) findViewById(R.id.send_button_sms);
