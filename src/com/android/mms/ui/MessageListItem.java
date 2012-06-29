@@ -762,7 +762,7 @@ public class MessageListItem extends LinearLayout implements
 
             Paint paint = mPaint;
 //            paint.setColor(0xff00ff00);
-            paint.setColor(0xff222222);
+            paint.setColor(0xffcccccc);
             paint.setStrokeWidth(1F);
             paint.setStyle(Paint.Style.STROKE);
             c.drawPath(path, paint);

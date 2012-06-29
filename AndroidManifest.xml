@@ -45,7 +45,6 @@
             android:label="@string/app_label"
             android:icon="@mipmap/ic_launcher_smsmms"
             android:taskAffinity="android.task.mms"
-            android:theme="@android:style/Theme.Holo"
             android:allowTaskReparenting="true">
 
         <service android:name=".transaction.TransactionService"
@@ -57,7 +56,7 @@
         <activity android:name=".ui.ConversationList"
                   android:label="@string/app_label"
                   android:configChanges="orientation|screenSize|keyboardHidden"
-                  android:theme="@android:style/Theme.Holo"
+                  android:theme="@style/MmsHoloTheme"
                   android:uiOptions="splitActionBarWhenNarrow"
                   android:launchMode="singleTop">
             <intent-filter>
@@ -81,7 +80,7 @@
         <activity android:name=".ui.ComposeMessageActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"
                   android:windowSoftInputMode="stateHidden"
-                  android:theme="@android:style/Theme.Holo"
+                  android:theme="@style/MmsHoloTheme"
                   android:launchMode="singleTop" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -131,7 +130,7 @@
                   android:targetActivity=".ui.ComposeMessageActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"
                   android:windowSoftInputMode="stateHidden"
-                  android:theme="@android:style/Theme.Holo" >
+                  android:theme="@style/MmsHoloTheme" >
         </activity-alias>
 
         <activity android:name=".ui.DeliveryReportActivity"
@@ -151,18 +150,18 @@
         </activity>
 
         <activity android:name=".ui.SlideshowEditActivity"
-            android:theme="@android:style/Theme.Holo"
+            android:theme="@style/MmsHoloTheme"
             android:label="@string/edit_slideshow_activity" />
 
         <activity android:name=".ui.SlideEditorActivity"
             android:windowSoftInputMode="adjustResize"
-            android:theme="@android:style/Theme.Holo"
+            android:theme="@style/MmsHoloTheme"
             android:label="@string/edit_slide_activity" />
 
         <activity android:name=".ui.SlideshowActivity"
             android:noHistory="true"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:theme="@android:style/Theme.Holo"
+            android:theme="@style/MmsHoloTheme"
             android:label="@string/slideshow_activity">
         </activity>
 
@@ -173,7 +172,7 @@
         </activity>
 
         <activity android:name=".ui.MessagingPreferenceActivity"
-            android:theme="@android:style/Theme.Holo"
+            android:theme="@style/MmsHoloTheme"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/preferences_title" />
 
@@ -195,7 +194,7 @@
         </receiver>
 
         <activity android:name=".ui.ManageSimMessages"
-                  android:theme="@android:style/Theme.Holo"
+                  android:theme="@style/MmsHoloTheme"
                   android:launchMode="singleTop"
                   android:label="@string/sim_manage_messages_title">
             <intent-filter>
@@ -253,7 +252,7 @@
         </activity>
 
         <activity android:name=".ui.SearchActivity"
-            android:theme="@android:style/Theme.Holo"
+            android:theme="@style/MmsHoloTheme"
             android:label="@string/search"
             android:configChanges="orientation|screenSize|keyboardHidden" >
             <intent-filter>

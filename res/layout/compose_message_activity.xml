@@ -43,7 +43,7 @@
 
         <EditText android:id="@+id/subject"
             android:textAppearance="?android:attr/textAppearanceMediumInverse"
-
+            android:textColor="@android:color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:capitalize="sentences"
@@ -60,11 +60,10 @@
         android:gravity="bottom">
 
         <view class="com.android.mms.ui.MessageListView"
+            style="?android:attr/listViewWhiteStyle"
             android:id="@+id/history"
-            android:divider="#dd222222"
             android:layout_width="match_parent"
             android:layout_height="0dip"
-            android:textColor="#fffcfcfc"
             android:layout_weight="1.0"
             android:transcriptMode="normal"
             android:smoothScrollbar="false"
@@ -72,7 +71,7 @@
             android:visibility="gone"
             android:fadingEdge="none"
             android:layout_marginBottom="1dip"
-            android:cacheColorHint="@android:color/black"
+            android:cacheColorHint="@android:color/white"
             android:scrollbarAlwaysDrawVerticalTrack="false"
             android:scrollbarStyle="insideOverlay"
             android:paddingBottom="@dimen/input_text_height_adjusted"
@@ -118,7 +117,7 @@
             </ScrollView>
 
             <!-- Divider. (Yes, the .9dp is on purpose.) -->
-            <View android:background="#dd222222"
+            <View android:background="?android:attr/dividerHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height=".9dp" />
 
@@ -127,10 +126,11 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:background="#fff"
                 android:paddingBottom="4dip" >
 
                 <EditText
+                    android:textColor="@android:color/black"
                     android:id="@+id/embedded_text_editor"
                     android:layout_width="0dip"
                     android:layout_gravity="bottom"
@@ -160,7 +160,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal|bottom"
-                        android:textColor="#ccdddddd"
+                        android:textColor="#cc333333"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         android:paddingLeft="3dip"
